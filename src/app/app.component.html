@@ -1,4 +1,161 @@
 <div class="app-wrapper">
-  <button mat-raised-button color="primary">Click Me!</button>
+  <span class="align-tool"></span>
+  <div class="app-container">
+    <div class="app-nav-bar">
+      <span class="align-tool"></span>
+      <a class="nav-item" (click)="scroll(brands)">BRANDS</a>
+      <a class="nav-item" (click)="scroll(projects)">PROJECTS</a>
+    </div>
+
+    <div class="app-header">Ankur Bargotra</div>
+
+    <div class="about-me-container">
+      <div class="app-main-text">I am a founder, brand manager, web developer and UX designer.</div>
+      <div class="app-main-text" style="margin-top: 5px;">Check out my <a class="general-link" (click)="scroll(brands)">brands</a> and <a class="general-link" (click)="scroll(projects)">projects</a> below.</div>
+    </div>
+
+    <div class="terminal-container">
+      <span class="align-tool"></span>
+
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="align-tool"></span>
+          <div class="terminal-btn-row">
+            <div class="terminal-btn" matRipple style="background-color: #FD5754; margin-left: 9px;">
+              <span class="align-tool"></span>
+              <svg id="terminal-icon" class="terminal-icon-red" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#7F0508" stroke="#7F0508" stroke-width="3" d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+              </svg>
+              <span class="align-tool"></span>
+            </div>
+            <div class="terminal-btn" matRipple style="background-color: #FEBB40">
+              <span class="align-tool"></span>
+              <svg id="terminal-icon" class="terminal-icon-yellow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#995712" stroke="#995712" stroke-width="6" d="M0 10h24v4h-24z"/>
+              </svg>
+              <span class="align-tool"></span>
+            </div>
+            <div class="terminal-btn" matRipple style="background-color: #34C848">
+              <span class="align-tool"></span>
+              <svg id="terminal-icon" class="terminal-icon-green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#0B650E" stroke="#0B650E" stroke-width="3" d="M24 13h-4v-9h-9v-4h13v13zm-24 11h13v-4h-9v-9h-4v13z"/>
+              </svg>
+              <span class="align-tool"></span>
+            </div>
+          </div>
+          <span class="align-tool"></span>
+        </div>
+
+        <div class="terminal-body" matRipple>
+          <span class="align-tool"></span>
+          <div class="terminal-statement">
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.contactInfo</div>
+            <div class="return-statement">
+              ["<a class="link-statement" rel="noopener" href="mailto:ankur.bargotra@gmail.com" target="_blank" title="E-Mail">ankur.bargotra@gmail.com</a>",
+              "<a class="link-statement" rel="noopener" href="https://www.linkedin.com/in/ankur-bargotra-74a296106/" target="_blank" title="LinkedIn">LinkedIn</a>",
+              "<a class="link-statement" rel="noopener" href="https://github.com/enchorb" target="_blank" title="GitHub">GitHub</a>"]
+            </div>
+
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.currentLocation</div>
+            <div class="return-statement">"Toronto, ON, Canada"</div>
+
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.education</div>
+            <div class="return-statement">"B.E. Computer Engineering, Coop - McMaster University"</div>
+
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.interests</div>
+            <div class="return-statement">["design", "football", "futurism", "gaming", "movies", "sustainability"]</div>
+
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.resume</div>
+            <div class="return-statement">"<a class="link-statement" href="./../assets/Resume.pdf" target="_blank" title="Resume">ankurbargotra.pdf</a>"</div>
+
+            <div class="input-statement"><b class="terminal-newline">></b> Ankur.skills</div>
+            <div class="return-statement">["After Effects", "Angular", "AWS", "Git", "Management", "Photoshop", "TypeScript", "UX"]</div>
+
+            <div class="input-statement"><b class="terminal-newline">></b>&nbsp;<div class="box-cursor"></div></div>
+          </div>
+          <span class="align-tool"></span>
+        </div>
+      </div>
+
+      <span class="align-tool"></span>
+    </div>
+
+    <div #brands class="section-divider">
+      <span class="align-tool"></span>
+      <div class="section-title">BRANDS</div>
+      <span class="align-tool"></span>
+    </div>
+
+    <div class="section">
+      <div class="info-card" *ngFor="let brand of brandCards;">
+        <div class="info-container">
+          <span class="align-tool"></span>
+          <div class="info-title">{{brand.name}}</div>
+          <span class="align-tool"></span>
+          <div class="info-desc" [innerHTML]="brand.desc"></div>
+          <span class="align-tool"></span>
+          <div class="info-tags-container">
+            <div class="info-tags" matRipple *ngFor="let tag of brand.tags">{{tag}}</div>
+          </div>
+          <span class="align-tool"></span>
+          <div class="info-links-container">
+            <a class="icon-button" mat-raised-button *ngFor="let button of brand.buttons" [ngStyle]="{'color': button.color, 'background-color': button.background}"
+                    rel="noopener" [href]="button.link" target="_blank" [title]="brand.name"
+            >
+              {{button.name}}
+              <svg class="icon-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path [attr.fill]="button.color" [attr.d]="button.path"/></svg>
+            </a>
+          </div>
+          <span class="align-tool"></span>
+        </div>
+        <div class="info-logo" [ngStyle]="{'width': brand.logo_width}"><img class="info-logo-image" [src]="brand.logo"></div>
+        <div class="info-background-overlay-mask"><div class="info-background-overlay-mask-right"></div></div>
+        <div class="info-background-overlay"><div class="info-background-overlay-top"></div><div class="info-background-overlay-bottom"></div></div>
+        <div class="info-image-container"><img class="info-image" [src]="brand.img"></div>
+      </div>
+    </div>
+
+    <div #projects class="section-divider">
+      <span class="align-tool"></span>
+      <div class="section-title">PROJECTS</div>
+      <span class="align-tool"></span>
+    </div>
+
+    <div class="section">
+      <div class="info-card" *ngFor="let project of projectCards;">
+        <div class="info-container">
+          <span class="align-tool"></span>
+          <div class="info-title">{{project.name}}</div>
+          <span class="align-tool"></span>
+          <div class="info-desc" [innerHTML]="project.desc | safeHtml"></div>
+          <span class="align-tool"></span>
+          <div class="info-tags-container">
+            <div class="info-tags" matRipple *ngFor="let tag of project.tags">{{tag}}</div>
+          </div>
+          <span class="align-tool"></span>
+          <div class="info-links-container">
+            <a class="icon-button" mat-raised-button *ngFor="let button of project.buttons" [ngStyle]="{'color': button.color, 'background-color': button.background}"
+                    rel="noopener" [href]="button.link" target="_blank" [title]="project.name"
+            >
+              {{button.name}}
+              <svg class="icon-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path [attr.fill]="button.color" [attr.d]="button.path"/></svg>
+            </a>
+          </div>
+          <span class="align-tool"></span>
+        </div>
+        <div class="info-logo" [ngStyle]="{'width': project.logo_width}"><img class="info-logo-image" [src]="project.logo"></div>
+        <div class="info-background-overlay-mask"><div class="info-background-overlay-mask-right"></div></div>
+        <div class="info-background-overlay"><div class="info-background-overlay-top"></div><div class="info-background-overlay-bottom"></div></div>
+        <div class="info-image-container"><img class="info-image" [src]="project.img"></div>
+      </div>
+    </div>
+
+    <div class="copyright-footer">
+      <span class="align-tool"></span>
+      <div class="copyright">Made by Ankur Bargotra © 2020</div>
+      <span class="align-tool"></span>
+    </div>
+  </div>
+  <span class="align-tool"></span>
 </div>
 

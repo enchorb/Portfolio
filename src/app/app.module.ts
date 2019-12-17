@@ -12,10 +12,12 @@ import {SharedModule} from './modules/shared/shared.module';
 import { AppComponent } from './app.component';
 
 // Services
+import { SafeHtmlPipe } from './pipes/safe-html';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
